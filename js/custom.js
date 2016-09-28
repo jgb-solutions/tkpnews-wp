@@ -1,7 +1,7 @@
 jQuery(document).on('pageshow', function() {
-	$(document).on( 'panelopen', '#tkpn-search', function() {
+	jQuery(document).on( 'panelopen', '#tkpn-search', function() {
 
-		var search = $( this ).find( "#search" );
+		var search = jQuery( this ).find( "#search" );
 		search.focus();
 
 		search.on('keyup', function()
@@ -15,7 +15,7 @@ jQuery(document).on('pageshow', function() {
 
 function lookup( searchinput )
 {
-	var searchr = $("#search-results");
+	var searchr = jQuery("#search-results");
 	if ( searchinput.length == 0 )
  	{
     // Hide the suggestion box.
@@ -26,10 +26,10 @@ function lookup( searchinput )
 				query: searchinput
 		};
 
-		$.post( tkpnAjax.ajaxUrl, data, function( data )
+		jQuery.post( tkpnAjax.ajaxUrl, data, function( data )
 		{
       if( data.length > 0 ){
-        $.mobile.activePage.find("#search-results").html(data).find('ul').listview().end().show();
+        jQuery.mobile.activePage.find("#search-results").html(data).find('ul').listview().end().show();
       }
     });
 	}
@@ -37,7 +37,7 @@ function lookup( searchinput )
 
 function viewCount()
 {
-	var target 	= $.mobile.activePage.find('span.viewCount'),
+	var target 	= jQuery.mobile.activePage.find('span.viewCount'),
 				id 		= target.data('id'),
 				data = {
 					action: 'tkpnViewCount',
